@@ -34,10 +34,8 @@
 
     <div class="jumbotron mx-5">       
             <div class="row justify-content-center">
-                <form action="/nomitec/backend/empleados/altas.php">
+                <form action="/nomitec/backend/empleados/altas.php" method="post">
                     Nombre: <input type="text" name="nombre">
-                    <br>
-                    ID: <input type="text" name="id">
                     <br>
                     Sueldo: <input type="text" name="sueldo">
                     <br>
