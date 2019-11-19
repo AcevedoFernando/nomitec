@@ -3,7 +3,7 @@
     if (isset($_SESSION['user'])) {
 
     } else {        
-        header("Location: ../login.php");
+        header("Location: /nomitec/login.php");
     }
     $user=$_SESSION['user'];
 ?>
