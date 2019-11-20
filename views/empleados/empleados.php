@@ -31,6 +31,24 @@
     ?>
 
 
+
+    <div class="jumbotron mx-5">       
+            <div class="row justify-content-end">
+                <form action="altas.php">
+                    <button class="mr-5" type="submit">Altas</button>                
+                </form>
+            </div>             
+    </div>
+
+
+
+
+
+
+
+
+
+
     <?php
         include ('../../layouts/footer.php');
     ?>
