@@ -35,17 +35,21 @@
     <div class="jumbotron mx-5">       
             <div class="row justify-content-end">
                 <form action="altas.php">
-                    <button class="mr-5" type="submit">Altas</button>                
+                    <button class="mr-5 btn btn-success" type="submit">Alta de Empleados</button>                
                 </form>
-            </div>             
+            </div> 
+            <br>
+            <div class="row justify-content-center border border-primary rounded bg-primary">            
+                <h1>Lista de Empleados</h1>             
+            </div>
+            <div class="row justify-content-center border border-primary rounded">            
+                <ul>
+                    <?php
+                        include ('../../backend/empleados/listado.php');
+                    ?>
+                </ul>      
+            </div>            
     </div>
-
-
-
-
-
-
-
 
 
 

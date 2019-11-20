@@ -37,8 +37,7 @@ include '../layouts/menu.php';
 <div class="p-3 mt-3 mx-5 text-center border border-primary rounded" 
      style="background-color:#bcdee2"><h3>Historial</h3></div>  
 
-<div class="jumbotron mx-5">
-    <br><br><br><br><br><br>
+<div class="jumbotron mx-5">   
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, beatae. Porro, accusantium? In nesciunt error placeat veniam laborum quod nostrum quam amet et, nam aliquam, quasi cum. Ratione, nisi itaque?</p>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, beatae. Porro, accusantium? In nesciunt error placeat veniam laborum quod nostrum quam amet et, nam aliquam, quasi cum. Ratione, nisi itaque?</p>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, beatae. Porro, accusantium? In nesciunt error placeat veniam laborum quod nostrum quam amet et, nam aliquam, quasi cum. Ratione, nisi itaque?</p>

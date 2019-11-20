@@ -14,4 +14,6 @@ $var_horas=$_POST["horas"];
 //$var_sueldoBruto=$var_horas*$var_sueldo;
 $query="INSERT INTO registroemp (name,sueldo,horas)VALUES('$var_Nombre','$var_sueldo','$var_horas')";
 mysqli_query($connection,$query);
+
+header('location: /nomitec/views/empleados/empleados.php');
 ?>
