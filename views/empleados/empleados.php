@@ -43,10 +43,31 @@
                 <h1>Lista de Empleados</h1>             
             </div>
             <div class="row justify-content-center border border-primary rounded">            
-                <ul>
-                    <?php
+               
+                    <ul>
+                        <?php 
+                    
                         include ('../../backend/empleados/listado.php');
-                    ?>
+                        while($array= mysqli_fetch_array($resultado)){
+        
+                            $id=$array['id'];
+                            $name=$array['name'];
+                            $sueldo=$array['sueldo'];
+                            $horas=$array['horas'];
+                        ?>
+                            <li>
+                                ID:<?php echo $id; ?> | Nombre:<?php echo $name; ?> | sueldo:<?php echo $sueldo; ?> |
+                                Horas:<?php echo $horas; ?>
+                                <button class="btn btn-success" type="button" onclick="location.href='/nomitec/views/empleados/editar.php?id=<?php echo $id; ?>'">
+                                    Editar
+                                </button>
+                                <button class="btn btn-primary" type="button" onclick="location.href='/nomitec/views/empleados/imprimir.php?id=<?php echo $id; ?>'">
+                                    Imprimir
+                                </button>
+                            </li>
+                        <?php
+                        }
+                        ?>
                 </ul>      
             </div>            
     </div>
