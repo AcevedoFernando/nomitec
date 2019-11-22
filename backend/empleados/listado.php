@@ -2,7 +2,7 @@
 
     require ('../conexionmysql.php');
 
-    $query="SELECT * FROM registroemp";
+    $query="SELECT * FROM empleado";
 
     $resultado=mysqli_query($connection,$query);    
         

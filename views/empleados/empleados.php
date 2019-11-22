@@ -42,8 +42,8 @@
             <div class="row justify-content-center border border-primary rounded bg-primary">            
                 <h1>Lista de Empleados</h1>             
             </div>
-            <div class="row justify-content-center border border-primary rounded">            
-               
+            <div class="container-fluid border border-primary rounded">
+                <br>                        
                     <ul>
                         <?php 
                     
@@ -51,24 +51,34 @@
                         while($array= mysqli_fetch_array($resultado)){
         
                             $id=$array['id'];
-                            $name=$array['name'];
-                            $sueldo=$array['sueldo'];
-                            $horas=$array['horas'];
+                            $nombre=$array['nombre'];
+                            $ape_mat=$array['ape_pat'];
+                            $ape_mat=$array['ape_mat'];
                         ?>
-                            <li>
-                                ID:<?php echo $id; ?> | Nombre:<?php echo $name; ?> | sueldo:<?php echo $sueldo; ?> |
-                                Horas:<?php echo $horas; ?>
-                                <button class="btn btn-success" type="button" onclick="location.href='/nomitec/views/empleados/editar.php?id=<?php echo $id; ?>'">
-                                    Editar
-                                </button>
-                                <button class="btn btn-primary" type="button" onclick="location.href='/nomitec/views/empleados/imprimir.php?id=<?php echo $id; ?>'">
-                                    Imprimir
-                                </button>
+                            <li>     
+                                <div class="row">
+                                        <div class="col">                                                                            
+                                            ID:<?php echo $id." | ".$nombre." ".$ape_pat." ".$horas; ?>
+                                        </div>
+                                        <div class="col">                                                                            
+                                            <button class="btn btn-success text-right" type="button" onclick="location.href='/nomitec/views/empleados/editar.php?id=<?php echo $id; ?>'">
+                                                Editar
+                                            </button>
+                                            <button class="btn btn-primary" type="button" onclick="location.href='/nomitec/views/empleados/imprimir.php?id=<?php echo $id; ?>'">
+                                                Imprimir Nomina
+                                            </button>
+                                            <button class="btn btn-danger" type="button" onclick="location.href='/nomitec/views/empleados/baja.php?id=<?php echo $id; ?>'">
+                                                Dar de Baja
+                                            </button>                                            
+                                        </div>
+                                </div>                                                           
                             </li>
-                        <?php
+                            <hr>
+                        <?php                            
                         }
+                        mysqli_close($connection);
                         ?>
-                </ul>      
+                </ul>                                                             
             </div>            
     </div>
 

@@ -32,15 +32,35 @@
 
 
 
-    <div class="jumbotron mx-5">       
-            <div class="row justify-content-center">
+    <div class="jumbotron mx-5">
+            <div class="row justify-content-center"><h3>Registro de empleados</h3></div>      
+            <hr>
+            <div class="row justify-content-start">
                 <form action="/nomitec/backend/empleados/altas.php" method="post">
-                    Nombre: <input type="text" name="nombre">
-                    <br>
-                    Sueldo: <input type="text" name="sueldo">
-                    <br>
-                    Horas: <input type="text" name="horas">        
-                    <button type="submit">Guardar</button>            
+                    <div class="col form-group">
+                        <input type="text" name="nombre" placeholder="Nombre" class="form-control" required>
+                        <input type="text" name="ape_pat" class="form-control" placeholder="Primer Apellido"required>
+                        <input type="text" name="ape_mat" class="form-control" placeholder="Segundo Apellido" required>
+                        <br>
+                        <select class="form-control" name="id_nivel" required>
+                            <option value="">Seleccione un nivel de estudios</option>
+                            <?php 
+                                include ('../conexionmysql.php');
+                                $query="SELECT * FROM nivel";
+                                $res=mysqli_query($connection,$query);
+                                $numrows=mysqli_num_rows($res);                                
+                            ?>
+                            <?php while($array=mysqli_fetch_array($res)){                                 
+                                $id=$array['id'];
+                                $nombre=$array['name'];                                    
+                            ?>                                
+                            <option value="<?php $id ?>"><?php echo $nombre; ?></option>
+                            <?php } ?>
+                            <?php mysqli_close($connection); ?>
+                        </select>
+                        <br>                               
+                        <button type="submit">Guardar</button>            
+                    </div>
                 </form>                              
             </div>             
     </div>
