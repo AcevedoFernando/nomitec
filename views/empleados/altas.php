@@ -35,32 +35,52 @@
     <div class="jumbotron mx-5">
             <div class="row justify-content-center"><h3>Registro de empleados</h3></div>      
             <hr>
-            <div class="row justify-content-start">
+            <div class="row justify-content-center">
                 <form action="/nomitec/backend/empleados/altas.php" method="post">
                     <div class="col form-group">
                         <input type="text" name="nombre" placeholder="Nombre" class="form-control" required>
                         <input type="text" name="ape_pat" class="form-control" placeholder="Primer Apellido"required>
                         <input type="text" name="ape_mat" class="form-control" placeholder="Segundo Apellido" required>
-                        <br>
+                        <br>                        
+
                         <select class="form-control" name="id_nivel" required>
                             <option value="">Seleccione un nivel de estudios</option>
                             <?php 
                                 include ('../conexionmysql.php');
                                 $query="SELECT * FROM nivel";
-                                $res=mysqli_query($connection,$query);
-                                $numrows=mysqli_num_rows($res);                                
+                                $res=mysqli_query($connection,$query);                                                              
                             ?>
                             <?php while($array=mysqli_fetch_array($res)){                                 
                                 $id=$array['id'];
                                 $nombre=$array['name'];                                    
                             ?>                                
-                            <option value="<?php $id ?>"><?php echo $nombre; ?></option>
+                            <option value="<?php echo $id ?>"><?php echo $nombre; ?></option>
                             <?php } ?>
                             <?php mysqli_close($connection); ?>
                         </select>
-                        <br>                               
-                        <button type="submit">Guardar</button>            
+                        <br>                                                                                                                  
+                    <input type="text" name="rfc" class="form-control" placeholder="RFC" required>
+                    <input type="text" name="curp" class="form-control" placeholder="CURP" required>
+                    <input type="text" name="nss" class="form-control" placeholder="NSS" required>
+                    <br>                   
+                    <select class="form-control" name="id_contrato" required>
+                            <option value="">Seleccione un contrato</option>
+                            <?php 
+                                include ('../conexionmysql.php');
+                                $query="SELECT * FROM contrato";
+                                $res=mysqli_query($connection,$query);                                                                
+                            ?>
+                            <?php while($array=mysqli_fetch_array($res)){                                 
+                                $id=$array['id'];
+                                $nombre=$array['name'];                                    
+                            ?>                                
+                            <option value="<?php echo $id ?>"><?php echo $nombre; ?></option>
+                            <?php } ?>
+                            <?php mysqli_close($connection); ?>
+                        </select>
+                    <button type="submit">Guardar</button>
                     </div>
+                    
                 </form>                              
             </div>             
     </div>

@@ -52,13 +52,13 @@
         
                             $id=$array['id'];
                             $nombre=$array['nombre'];
-                            $ape_mat=$array['ape_pat'];
+                            $ape_pat=$array['ape_pat'];
                             $ape_mat=$array['ape_mat'];
                         ?>
                             <li>     
                                 <div class="row">
                                         <div class="col">                                                                            
-                                            ID:<?php echo $id." | ".$nombre." ".$ape_pat." ".$horas; ?>
+                                            ID:<?php echo " ".$id." | ".$nombre." ".$ape_pat." ".$ape_mat; ?>
                                         </div>
                                         <div class="col">                                                                            
                                             <button class="btn btn-success text-right" type="button" onclick="location.href='/nomitec/views/empleados/editar.php?id=<?php echo $id; ?>'">
