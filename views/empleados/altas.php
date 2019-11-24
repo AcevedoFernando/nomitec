@@ -33,14 +33,20 @@
 
 
     <div class="jumbotron mx-5">
-            <div class="row justify-content-center"><h3>Registro de empleados</h3></div>      
+            <div class="row justify-content-start">
+                <form action="empleados.php">
+                    <button class="ml-5 btn btn-info" type="submit">Regresar</button>                
+                </form>
+            </div>
+            <div class="row justify-content-center"><h3 class="font-text-bold">Registro de empleados</h3></div>      
             <hr>
-            <div class="row justify-content-center">
+            <div class="row justify-content-center">                                
                 <form action="/nomitec/backend/empleados/altas.php" method="post">
-                    <div class="col form-group">
+                    <div class="col form-group text-center">
+                    <h5><em>Datos Personales</em></h5>
                         <input type="text" name="nombre" placeholder="Nombre" class="form-control" required>
                         <input type="text" name="ape_pat" class="form-control" placeholder="Primer Apellido"required>
-                        <input type="text" name="ape_mat" class="form-control" placeholder="Segundo Apellido" required>
+                        <input type="text" name="ape_mat" class="form-control" placeholder="Segundo Apellido">
                         <br>                        
 
                         <select class="form-control" name="id_nivel" required>
@@ -49,8 +55,8 @@
                                 include ('../conexionmysql.php');
                                 $query="SELECT * FROM nivel";
                                 $res=mysqli_query($connection,$query);                                                              
-                            ?>
-                            <?php while($array=mysqli_fetch_array($res)){                                 
+                           
+                                while($array=mysqli_fetch_array($res)){                                 
                                 $id=$array['id'];
                                 $nombre=$array['name'];                                    
                             ?>                                
@@ -61,7 +67,7 @@
                         <br>                                                                                                                  
                     <input type="text" name="rfc" class="form-control" placeholder="RFC" required>
                     <input type="text" name="curp" class="form-control" placeholder="CURP" required>
-                    <input type="text" name="nss" class="form-control" placeholder="NSS" required>
+                    <input type="number" name="nss" class="form-control" placeholder="NSS" required>
                     <br>                   
                     <select class="form-control" name="id_contrato" required>
                             <option value="">Seleccione un contrato</option>
@@ -78,7 +84,8 @@
                             <?php } ?>
                             <?php mysqli_close($connection); ?>
                         </select>
-                    <button type="submit">Guardar</button>
+                        <br>
+                    <button type="submit" class="btn btn-success form-control">Siguiente</button>
                     </div>
                     
                 </form>                              

@@ -39,11 +39,11 @@
                 </form>
             </div> 
             <br>
-            <div class="row justify-content-center border border-primary rounded bg-primary">            
+            <div class="row justify-content-center border border-primary rounded bg-primary mx-1">            
                 <h1>Lista de Empleados</h1>             
             </div>
-            <div class="container-fluid border border-primary rounded">
-                <br>                        
+            <div class="jumbotron justify-content-center border border-primary mx-1">
+                                    
                     <ul>
                         <?php 
                     
@@ -61,11 +61,11 @@
                                             ID:<?php echo " ".$id." | ".$nombre." ".$ape_pat." ".$ape_mat; ?>
                                         </div>
                                         <div class="col">                                                                            
-                                            <button class="btn btn-success text-right" type="button" onclick="location.href='/nomitec/views/empleados/editar.php?id=<?php echo $id; ?>'">
-                                                Editar
+                                            <button class="btn btn-success text-right" type="button" onclick="location.href='/nomitec/views/empleados/ver.php?id=<?php echo $id; ?>'">
+                                                Ver
                                             </button>
-                                            <button class="btn btn-primary" type="button" onclick="location.href='/nomitec/views/empleados/imprimir.php?id=<?php echo $id; ?>'">
-                                                Imprimir Nomina
+                                            <button class="btn btn-primary" type="button" onclick="location.href='/nomitec/views/empleados/editar.php?id=<?php echo $id; ?>'">
+                                                Editar
                                             </button>
                                             <button class="btn btn-danger" type="button" onclick="location.href='/nomitec/views/empleados/baja.php?id=<?php echo $id; ?>'">
                                                 Dar de Baja
