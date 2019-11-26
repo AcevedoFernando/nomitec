@@ -20,7 +20,7 @@ require ('../backend/sesiones/validarsesion.php');
 
     <style>
         body {
-            background-image: url('../resources/home.jpg');
+            background-image: url('/nomitec/resources/home.jpg');
             background-repeat: no-repeat;
             background-attachment: fixed;
             background-size: cover;
