@@ -38,7 +38,7 @@ include '../layouts/menu.php';
     <br>
     <br>
     <div class="jumbotron text-center">
-        <p class="display-2">¡Bienvenidos!</p>
+        <p class="display-2">¡Bienvenido!</p>
     </div>
 </main>
 
