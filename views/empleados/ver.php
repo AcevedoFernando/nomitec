@@ -44,7 +44,12 @@
             $nivel=$obj['id_nivel']; 
             $rfc=$obj['rfc'];
             $nss=$obj['nss'];
-            $curp=$obj['curp'];                                                        
+            $curp=$obj['curp'];  
+            
+            
+        
+                
+
         mysqli_close($connection);
     ?>
 
@@ -102,6 +107,8 @@
                             ?></option>                           
                     </select>                    
                     <br>
+                    <input type="text" class="form-control text-center" value="<?php echo $nombre_puesto ?>" disabled>
+                    
                 </div>
                       
     </div>               
