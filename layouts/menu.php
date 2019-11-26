@@ -36,6 +36,11 @@
 
                     <li class="nav-item mx-3">
                        <a class="nav-link border border-primary rounded" 
+                       href="/nomitec/views/bitacora.php" >Bitacora</a>                      
+                   </li>
+
+                   <li class="nav-item mx-3">
+                       <a class="nav-link border border-primary rounded" 
                        href="#" >Reportes</a>                      
                    </li>
 

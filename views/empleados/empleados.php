@@ -18,9 +18,10 @@
     
     <style>
         body {
-            background-image: url('/nomitec/resources/fondohome.jpg');
+            background-image: url('../resources/home.jpg');
             background-repeat: no-repeat;
-            background-attachment: fixed
+            background-attachment: fixed;
+            background-size: cover;
         }
     </style>
 
