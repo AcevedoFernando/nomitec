@@ -45,9 +45,20 @@
             $rfc=$obj['rfc'];
             $nss=$obj['nss'];
             $curp=$obj['curp'];  
-            
-            
+
+        $query="SELECT * FROM domicilios WHERE id='$id'";
+        $result = mysqli_query($connection, $query) or die(mysqli_error($connection));               
+            $obj=mysqli_fetch_array($result);  
+            $calle=$obj['calle'];
+            $colonia=$obj['colonia'];
+            $estado=$obj['id_estado'];
+            $numero_exterior=$obj['numero_exterior'];
+            $cp=$obj['cp'];
+            $municipio=$obj['municipio'];
         
+        $query="SELECT * FROM domicilios WHERE id='$id'";
+        $result = mysqli_query($connection, $query) or die(mysqli_error($connection));               
+            $obj=mysqli_fetch_array($result); 
                 
 
         mysqli_close($connection);
@@ -64,51 +75,104 @@
     <div class="row justify-content-center border border-primary rounded bg-primary">            
                 <h3>Empleado: <?php echo $id; ?> </h3>             
     </div>
-    <div class="row justify-content-center border border-primary rounded">        
-            
-                <div class="col-6 form-group text-center">
-                    <br>
-                    <label for="nombre"><ins>Nombre</ins></label>
-                    <input type="text" name="nombre" class="form-control text-center" value="<?php echo $nombre.' '.$ape_pat.' '.$ape_mat; ?>" disabled>
-                    
-                    <br>
-                    <label for="nivelEstudios"><ins>Nivel de estudios</ins></label>
-                    <select class="form-control" name="nivelEstudios" disabled>
-                            <option><?php 
-                            
-                            include ('../conexionmysql.php');
+    <div class="container-fluid justify-content-center border border-primary rounded">   
+                <div class="row justify-content-center">
+                    <div class="col justify-content-center">
+                        <br>
+                        <h3><span class="oi oi-book"></span>Datos Personales</h3>                        
+                    </div>                            
+                </div>     
+                <div class="row">                    
+                    <div class="col-6 form-group">                                            
+                        <div class="form-group">
+                            <label for="nombre" class="form-control">Nombre</label>
+                            <input type="text" name="nombre" class="form-control text-center" value="<?php echo $nombre.' '.$ape_pat.' '.$ape_mat; ?>" disabled>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="nivelEstudios" class="form-control">Nivel de estudios</label>
+                            <select class="form-control" name="nivelEstudios" disabled>
+                                    <option><?php 
+                                    
+                                    include ('../conexionmysql.php');
 
-                            $query="SELECT * FROM nivel WHERE id='$nivel'";
-                            $res=mysqli_query($connection,$query);
-                            $array=mysqli_fetch_array($res);
-                            echo $array['name'];
+                                    $query="SELECT * FROM nivel WHERE id='$nivel'";
+                                    $res=mysqli_query($connection,$query);
+                                    $array=mysqli_fetch_array($res);
+                                    echo $array['name'];
 
-                            ?></option>                           
-                    </select>
-                    <br>
-                    <label for="rfc"><ins>RFC</ins></label>                                                                                                                                                                                      
-                    <input type="text" name="rfc" class="form-control text-center" value="<?php echo $rfc ?>" disabled>
-                    <label for="curp"><ins>CURP</ins></label>
-                    <input type="text" name="curp" class="form-control text-center" value="<?php echo $curp ?>" disabled>
-                    <label for="nss"><ins>NSS</ins></label>
-                    <input type="text" class="form-control text-center" value="<?php echo $nss ?>" disabled>
-                    <br>                    
-                    <label for="contrato"><ins>Contrato</ins></label>                   
-                    <select class="form-control text-center" name="contrato" disabled>
-                            <option value=""><?php 
-                            
-                                include ('../conexionmysql.php');
+                                    ?></option>                           
+                            </select>
+                        </div>
+                        <?php mysqli_close($connection); ?>
+                       
+                        <div class="form-group">
+                            <label for="rfc" class="form-control">RFC</label>                                                                                                                                                                                      
+                            <input type="text" name="rfc" class="form-control text-center" value="<?php echo $rfc ?>" disabled>
+                        </div>
+                    </div>
+                    <div class="col-6">                        
+                        <div class="form-group">
+                            <label for="curp" class="form-control">CURP</label>
+                            <input type="text" name="curp" class="form-control text-center" value="<?php echo $curp ?>" disabled>
+                        </div>
+                        <div class="form-group">
+                            <label for="nss" class="form-control">NSS</label>
+                            <input type="text" name="nss" class="form-control text-center" value="<?php echo $nss ?>" disabled>
+                        </div>                    
+                        <div class="form-group">
+                            <label for="contrato" class="form-control">Contrato</label>                   
+                            <select class="form-control text-center" name="contrato" disabled>
+                                    <option value=""><?php 
+                                    
+                                        include ('../conexionmysql.php');
 
-                                $query="SELECT * FROM contrato WHERE id='$contrato'";
-                                $res=mysqli_query($connection,$query);
-                                $array=mysqli_fetch_array($res);
-                                echo $array['name'];
+                                        $query="SELECT * FROM contrato WHERE id='$contrato'";
+                                        $res=mysqli_query($connection,$query);
+                                        $array=mysqli_fetch_array($res);
+                                        echo $array['name'];
 
-                            ?></option>                           
-                    </select>                    
-                    <br>
-                    <input type="text" class="form-control text-center" value="<?php echo $nombre_puesto ?>" disabled>
-                    
+                                    ?></option>                           
+                            </select>                    
+                        </div>
+                    </div>                   
+                        <br>                    
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col justify-content-center">
+                        <br>
+                        <h3><span class="oi oi-book"></span>Domicilio</h3>                        
+                    </div>                            
+                </div>
+                <div class="row">
+                    <div class="col-6 text-center">                       
+                        <div class="form-group">
+                            <label for="calle" class="form-control">Calle</label>
+                            <input type="text" class="form-control text-center" value="<?php echo $calle ?>" disabled>
+                        </div>
+                        <div class="form-group">
+                            <label for="numero_exterior" class="form-control">Numero Exterior</label>
+                            <input type="text" class="form-control text-center" value="<?php echo $numero_exterior ?>" disabled>
+                        </div>
+                        <div class="form-group">
+                            <label for="colonia" class="form-control">Colonia</label>
+                            <input type="text" class="form-control text-center" value="<?php echo $colonia ?>" disabled>
+                        </div>                                                                   
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="municipio" class="form-control">Municipio</label>
+                            <input type="text" class="form-control text-center" value="<?php echo $municipio ?>" disabled>
+                        </div>
+                        <div class="form-group">
+                            <label for="estado" class="form-control">Estado</label>
+                            <input type="text" class="form-control text-center" value="<?php echo $estado ?>" disabled>
+                        </div>
+                        <div class="form-group">
+                            <label for="cp" class="form-control">Codigo Postal</label>
+                            <input type="text" class="form-control text-center" value="<?php echo $cp ?>" disabled>
+                        </div> 
+                    </div>
                 </div>
                       
     </div>               
