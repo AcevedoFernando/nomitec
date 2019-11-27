@@ -45,28 +45,10 @@
             $rfc=$obj['rfc'];
             $nss=$obj['nss'];
             $curp=$obj['curp'];  
+            
+            
         
-        $query="SELECT * FROM domicilios WHERE id='$id'";
-        $result = mysqli_query($connection, $query) or die(mysqli_error($connection));
-        $obj=mysqli_fetch_array($result);
-            $calle=$obj['calle'];
-            $colonia=$obj['colonia'];
-            $municipio=$obj['municipio'];
-            $estado=$obj['id_estado'];
-            $cp=$obj['cp'];
-            $numero_interior=$obj['numero_interior'];
-            $numero_exterior=$obj['numero_exterior'];
-
-        $query="SELECT * FROM trabajador WHERE id='$id'";
-        $result = mysqli_query($connection, $query) or die(mysqli_error($connection));
-        $obj=mysqli_fetch_array($result);
-            $id_puesto=$obj['id_puesto'];
-            $sueldo=$obj['sueldo'];
-            $horas=$obj['horas'];
-
-            /*SELECT niveles.nombre, publicaciones.titulo 
-            FROM niveles, publicaciones 
-            WHERE niveles.id = publicaciones.nivel_id;*/
+                
 
         mysqli_close($connection);
     ?>
@@ -125,6 +107,8 @@
                             ?></option>                           
                     </select>                    
                     <br>
+                    <input type="text" class="form-control text-center" value="<?php echo $nombre_puesto ?>" disabled>
+                    
                 </div>
                       
     </div>               
