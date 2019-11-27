@@ -1,17 +1,25 @@
+
 <?php
-include ('../conexionmysql.php');
-$server="localhost";
-$username="root";
-$password="";
-$db="nomitec";
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "nomitec";
 $id=$_GET['id'];
-$conn=new mysqli($server,$username,$password,$db);
-$borrar=" DELETE FROM empleados WHERE id='$id'";
-if ($conn->query($sql) == TRUE) {
-	echo "si se borro mi rega";
-}else{
-	"al chile no borro".$conn->error;
+
+// Creamos la conexion con la bd
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+// checamos conexion
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
 }
-$conn->close();
-header('location: /nomitec/views/empleados/empleados.php');
+// instruccion para borrar el empleado que necesitamos borrar
+$sql = "DELETE FROM empleado WHERE id='$id'";
+//comprobacion de que se halla borrado el empleado
+if (mysqli_query($conn, $sql)) {
+    echo "Record deleted successfully";
+} else {
+    echo "Error deleting record: " . mysqli_error($conn);
+}
+mysqli_close($conn);
+header('location: /nomitec/views/empleados/empleados.php?id='.$id);
 ?>
