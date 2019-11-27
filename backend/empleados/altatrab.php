@@ -53,4 +53,5 @@ mysqli_query($connection,$query);
 
 mysqli_close($connection);
 header('location: /nomitec/views/empleados/empleados.php?id='.$id);
+
 ?>	
