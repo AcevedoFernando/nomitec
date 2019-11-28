@@ -52,5 +52,5 @@ $query="INSERT INTO  (id,id_puesto,sueldo,horas) VALUES ('$id','$id_puesto','$su
 mysqli_query($connection,$query);
 
 mysqli_close($connection);
-header('location: /nomitec/views/empleados/trabajador.php?id='.$id);
+header('location: /nomitec/views/empleados/empleados.php');
 ?>	
