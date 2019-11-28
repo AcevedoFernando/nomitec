@@ -55,12 +55,31 @@
             $numero_exterior=$obj['numero_exterior'];
             $cp=$obj['cp'];
             $municipio=$obj['municipio'];
-        
-        $query="SELECT * FROM domicilios WHERE id='$id'";
-        $result = mysqli_query($connection, $query) or die(mysqli_error($connection));               
-            $obj=mysqli_fetch_array($result); 
-                
 
+        //Datos Laborales
+        $query="SELECT * FROM trabajador WHERE id='$id'";
+        $result = mysqli_query($connection, $query) or die(mysqli_error($connection));               
+            $obj=mysqli_fetch_array($result);
+            $id_puesto=$obj['id_puesto'];
+            $sueldo=$obj['sueldo'];
+            $horas=$obj['horas'];
+        
+        $query="SELECT * FROM puesto WHERE id='$id_puesto'";
+        $result = mysqli_query($connection, $query) or die(mysqli_error($connection));               
+            $obj=mysqli_fetch_array($result);
+            $nombre_puesto=$obj['name'];
+            $id_dep=$obj['id_departamentos'];
+
+        $query="SELECT * FROM departamentos WHERE id='$id_dep'";
+        $result = mysqli_query($connection, $query) or die(mysqli_error($connection));               
+                $obj=mysqli_fetch_array($result);             
+                $departamento=$obj['name'];
+                $jefe=$obj['jefe'];
+
+        $query="SELECT * FROM empleado WHERE id='$jefe'";
+        $result = mysqli_query($connection, $query) or die(mysqli_error($connection));               
+            $obj=mysqli_fetch_array($result);
+            $nombre_jefe=$obj['nombre'];
         mysqli_close($connection);
     ?>
 
@@ -85,12 +104,12 @@
                 <div class="row">                    
                     <div class="col-6 form-group">                                            
                         <div class="form-group">
-                            <label for="nombre" class="form-control">Nombre</label>
+                            <label for="nombre">Nombre</label>
                             <input type="text" name="nombre" class="form-control text-center" value="<?php echo $nombre.' '.$ape_pat.' '.$ape_mat; ?>" disabled>
                         </div>
                         
                         <div class="form-group">
-                            <label for="nivelEstudios" class="form-control">Nivel de estudios</label>
+                            <label for="nivelEstudios">Nivel de estudios</label>
                             <select class="form-control" name="nivelEstudios" disabled>
                                     <option><?php 
                                     
@@ -107,21 +126,21 @@
                         <?php mysqli_close($connection); ?>
                        
                         <div class="form-group">
-                            <label for="rfc" class="form-control">RFC</label>                                                                                                                                                                                      
+                            <label for="rfc">RFC</label>                                                                                                                                                                                      
                             <input type="text" name="rfc" class="form-control text-center" value="<?php echo $rfc ?>" disabled>
                         </div>
                     </div>
                     <div class="col-6">                        
                         <div class="form-group">
-                            <label for="curp" class="form-control">CURP</label>
+                            <label for="curp">CURP</label>
                             <input type="text" name="curp" class="form-control text-center" value="<?php echo $curp ?>" disabled>
                         </div>
                         <div class="form-group">
-                            <label for="nss" class="form-control">NSS</label>
+                            <label for="nss">NSS</label>
                             <input type="text" name="nss" class="form-control text-center" value="<?php echo $nss ?>" disabled>
                         </div>                    
                         <div class="form-group">
-                            <label for="contrato" class="form-control">Contrato</label>                   
+                            <label for="contrato">Contrato</label>                   
                             <select class="form-control text-center" name="contrato" disabled>
                                     <option value=""><?php 
                                     
@@ -145,33 +164,65 @@
                     </div>                            
                 </div>
                 <div class="row">
-                    <div class="col-6 text-center">                       
+                    <div class="col-6">                       
                         <div class="form-group">
-                            <label for="calle" class="form-control">Calle</label>
+                            <label for="calle">Calle</label>
                             <input type="text" class="form-control text-center" value="<?php echo $calle ?>" disabled>
                         </div>
                         <div class="form-group">
-                            <label for="numero_exterior" class="form-control">Numero Exterior</label>
+                            <label for="numero_exterior">Numero Exterior</label>
                             <input type="text" class="form-control text-center" value="<?php echo $numero_exterior ?>" disabled>
                         </div>
                         <div class="form-group">
-                            <label for="colonia" class="form-control">Colonia</label>
+                            <label for="colonia">Colonia</label>
                             <input type="text" class="form-control text-center" value="<?php echo $colonia ?>" disabled>
                         </div>                                                                   
                     </div>
                     <div class="col-6">
                         <div class="form-group">
-                            <label for="municipio" class="form-control">Municipio</label>
+                            <label for="municipio">Municipio</label>
                             <input type="text" class="form-control text-center" value="<?php echo $municipio ?>" disabled>
                         </div>
                         <div class="form-group">
-                            <label for="estado" class="form-control">Estado</label>
+                            <label for="estado" >Estado</label>
                             <input type="text" class="form-control text-center" value="<?php echo $estado ?>" disabled>
                         </div>
                         <div class="form-group">
-                            <label for="cp" class="form-control">Codigo Postal</label>
+                            <label for="cp">Codigo Postal</label>
                             <input type="text" class="form-control text-center" value="<?php echo $cp ?>" disabled>
                         </div> 
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col justify-content-center">
+                        <br>
+                        <h3><span class="oi oi-book"></span>Datos Laborales</h3>                        
+                    </div>                            
+                </div>
+                <div class="row">
+                    <div class="col-6">                       
+                        <div class="form-group">
+                            <label for="calle">Puesto</label>
+                            <input type="text" class="form-control text-center" value="<?php echo $nombre_puesto ?>" disabled>
+                        </div>
+                        <div class="form-group">
+                            <label for="numero_exterior">Sueldo Diario</label>
+                            <input type="text" class="form-control text-center" value="<?php echo $sueldo ?>" disabled>
+                        </div>
+                        <div class="form-group">
+                            <label for="colonia">Horas Diarias</label>
+                            <input type="text" class="form-control text-center" value="<?php echo $horas ?>" disabled>
+                        </div>                                                                   
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="municipio">Departamento</label>
+                            <input type="text" class="form-control text-center" value="<?php echo $departamento ?>" disabled>
+                        </div>
+                        <div class="form-group">
+                            <label for="estado" >Jefe Directo</label>
+                            <input type="text" class="form-control text-center" value="<?php echo $nombre_jefe ?>" disabled>
+                        </div>                        
                     </div>
                 </div>
                       
