@@ -48,10 +48,9 @@ if($sueldobruto > 300000){
 	$sueldoneto=$sueldobruto-($sueldobruto*.35);
 	$totisr=$sueldobruto*.35;
 }
-$query="INSERT INTO  (id,id_puesto,sueldo,horas) VALUES ('$id','$id_puesto','$sueldo','$horas')";
+$query="INSERT INTO trabajador (id,id_puesto,sueldo,horas) VALUES ('$id','$id_puesto','$sueldo','$horas')";
 mysqli_query($connection,$query);
 
 mysqli_close($connection);
 header('location: /nomitec/views/empleados/empleados.php?id='.$id);
-
 ?>	
