@@ -11,7 +11,7 @@
                        <div class="dropdown-menu">                           
                            <a class="dropdown-item" href="/nomitec/views/empleados/empleados.php">Lista de empleados</a>
                            <div class="dropdown-divider"></div>
-                           <a class="dropdown-item" href="#">Prestamos</a>                           
+                           <a class="dropdown-item" href="/nomitec/views/empleados/prestamos/prestamos.php">Prestamos</a>                           
                            <div class="dropdown-divider"></div>
                            <a class="dropdown-item" href="#">Nominas</a>
                        </div>
