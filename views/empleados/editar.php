@@ -191,25 +191,25 @@
                     <div class="col-6">                       
                         <div class="form-group">
                             <label for="calle">Calle</label>
-                            <input type="text" class="form-control text-center" value="<?php echo $calle ?>">
+                            <input type="text" name="calle" class="form-control text-center" value="<?php echo $calle ?>">
                         </div>
                         <div class="form-group">
                             <label for="numero_exterior">Numero Exterior</label>
-                            <input type="text" class="form-control text-center" value="<?php echo $numero_exterior ?>">
+                            <input type="text" name="numero_exterior" class="form-control text-center" value="<?php echo $numero_exterior ?>">
                         </div>
                         <div class="form-group">
                             <label for="numero_interior">Numero Interior</label>
-                            <input type="text" class="form-control text-center" value="<?php echo $numero_interior ?>">
+                            <input type="text" name="numero_interior" class="form-control text-center" value="<?php echo $numero_interior ?>">
                         </div>
                         <div class="form-group">
                             <label for="colonia">Colonia</label>
-                            <input type="text" class="form-control text-center" value="<?php echo $colonia ?>">
+                            <input type="text" name="colonia" class="form-control text-center" value="<?php echo $colonia ?>">
                         </div>                                                                   
                     </div>
                     <div class="col-6">
                         <div class="form-group">
                             <label for="municipio">Municipio</label>
-                            <input type="text" class="form-control text-center" value="<?php echo $municipio ?>">
+                            <input type="text" name="municipio" class="form-control text-center" value="<?php echo $municipio ?>">
                         </div>
                         <div class="form-group">
                             <label>Estado</label>                   
