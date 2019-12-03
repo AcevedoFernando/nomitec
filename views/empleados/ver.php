@@ -53,6 +53,7 @@
             $colonia=$obj['colonia'];
             $estado=$obj['id_estado'];
             $numero_exterior=$obj['numero_exterior'];
+            $numero_interior=$obj['numero_interior'];
             $cp=$obj['cp'];
             $municipio=$obj['municipio'];
 
@@ -172,6 +173,10 @@
                         <div class="form-group">
                             <label for="numero_exterior">Numero Exterior</label>
                             <input type="text" class="form-control text-center" value="<?php echo $numero_exterior ?>" disabled>
+                        </div>
+                         <div class="form-group">
+                            <label for="numero_interior">Numero Interior</label>
+                            <input type="text" class="form-control text-center" value="<?php echo $numero_interior ?>" disabled>
                         </div>
                         <div class="form-group">
                             <label for="colonia">Colonia</label>
