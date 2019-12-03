@@ -58,7 +58,7 @@
                 <h5><em>Datos</em></h5>  
             </div>           
             <div class="row justify-content-center">    
-                <form action="/nomitec/backend/empleados/pestamos/editar.php=?id=<?php echo $id; ?>">                                                              
+                <form action="/nomitec/backend/empleados/prestamos/editar.php?id=<?php echo $id; ?>" method="post">                                                              
                     <div class="col form-group">                                          
                         <div class="form-group">
                             <label for="id_empleado">Empleado</label>                             
