@@ -42,7 +42,7 @@
             <div class="row justify-content-center">                                                
                 <table class="table table-responsive-md">
                     <tr>
-                        <td>ID</td>
+                        <td>No. Prestamo</td>
                         <td>Empleado</td>
                         <td>Monto</td>
                         <td>Descuento por nomina</td>
