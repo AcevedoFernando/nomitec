@@ -5,6 +5,9 @@ $id=$_GET['id'];
 $id_puesto=$_POST["id_puesto"];
 $sueldo=$_POST["sueldo"];
 $horas=$_POST["horas"];
+session_start();
+$idus=$_SESSION['id'];
+$accion='Dar de alta empleado '.$id;
 $query="INSERT INTO trabajador (id,id_puesto,sueldo,horas) VALUES ('$id','$id_puesto','$sueldo','$horas')";
 mysqli_query($connection,$query);
 //**********CALCULO DEL ISR******************//
@@ -48,10 +51,12 @@ if($sueldobruto > 300000){
 	$sueldoneto=$sueldobruto-($sueldobruto*.35);
 	$totisr=$sueldobruto*.35;
 }
-$query="INSERT INTO  (id,id_puesto,sueldo,horas) VALUES ('$id','$id_puesto','$sueldo','$horas')";
+$query="INSERT INTO trabajador (id,id_puesto,sueldo,horas) VALUES ('$id','$id_puesto','$sueldo','$horas')";
 mysqli_query($connection,$query);
-
+$query="INSERT INTO log (id_usuario,accion) VALUES ('$idus','$accion')" ; 
+mysqli_query($connection,$query);
 mysqli_close($connection);
+
 header('location: /nomitec/views/empleados/empleados.php');
 
 ?>	
