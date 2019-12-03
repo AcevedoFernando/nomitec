@@ -15,20 +15,16 @@
                            <div class="dropdown-divider"></div>
                            <a class="dropdown-item" href="#">Nominas</a>
                        </div>
-                   </li>
-                    
-                   <li class="nav-item mx-3">
-                       <a class="nav-link border border-primary rounded" href="#">Deducciones y bonificaciones</a>                       
-                   </li>
+                   </li>                  
 
                     <?php if($_SESSION['rol']<=2){?>
                    <li class="nav-item dropdown mx-3">
                        <a class="nav-link dropdown-toggle  border border-primary rounded" data-toggle="dropdown" 
                        href="#" role="button" aria-haspopup="true" aria-expanded="false">Administrar</a>
                        <div class="dropdown-menu">                                                                               
-                           <a class="dropdown-item" href="#">Lista de usuarios</a>
+                           <a class="dropdown-item" href="/nomitec/views/usuarios/usuarios.php">Usuarios</a>
                            <div class="dropdown-divider"></div>
-                           <a class="dropdown-item" href="#">Aréas o Departamentos</a>
+                           <a class="dropdown-item" href="/nomitec/views/departamentos/departamentos.php">Aréas o Departamentos</a>
                        </div>
                    </li>
                     <?php } ?>
