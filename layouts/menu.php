@@ -13,7 +13,7 @@
                            <div class="dropdown-divider"></div>
                            <a class="dropdown-item" href="/nomitec/views/empleados/prestamos/prestamos.php">Prestamos</a>                           
                            <div class="dropdown-divider"></div>
-                           <a class="dropdown-item" href="#">Nominas</a>
+                           <a class="dropdown-item" href="/nomitec/views/nominas/nominas.php">Nominas</a>
                        </div>
                    </li>                  
 
@@ -25,6 +25,8 @@
                            <a class="dropdown-item" href="/nomitec/views/usuarios/usuarios.php">Usuarios</a>
                            <div class="dropdown-divider"></div>
                            <a class="dropdown-item" href="/nomitec/views/departamentos/departamentos.php">Aréas o Departamentos</a>
+                           <div class="dropdown-divider"></div>
+                           <a class="dropdown-item" href="/nomitec/views/empresa/empresa.php">Empresa</a>                      
                        </div>
                    </li>
                     <?php } ?>

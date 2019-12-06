@@ -17,7 +17,7 @@
                 <?php echo $id; ?>
             </td>  
             <td>                                                                          
-                <?php echo $user; ?>
+                <?php echo $nombre; ?>
             </td>
             <td>                                                                            
                 <?php echo $rol; ?>

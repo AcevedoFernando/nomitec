@@ -42,10 +42,10 @@
                 <div class="col-8">
                     <table class="table table-responsive-md">
                         <tr>
-                            <td>ID</td>
-                            <td>Departamento</td>
-                            <td>Jefe</td>                        
-                            <td>Acciones</td>
+                            <th>ID</th>
+                            <th>Departamento</th>
+                            <th>Jefe</th>                        
+                            <th>Acciones</th>
                         </tr>
                         <?php include ('../../backend/departamentos/listado.php'); ?>
                     </table>           

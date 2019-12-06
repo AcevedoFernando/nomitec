@@ -46,12 +46,12 @@
             <div class="row justify-content-center border border-primary mx-1">
                 <table class="table table-responsive-md">
                         <tr>
-                            <td>ID</td>
-                            <td>Nombre</td>
-                            <td>Primer Apellido</td>
-                            <td>Segundo Apellido</td>
-                            <td>Status</td>
-                            <td>Acciones</td>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Primer Apellido</th>
+                            <th>Segundo Apellido</th>
+                            <th>Status</th>
+                            <th>Acciones</th>
                         </tr>    
                         <?php include ('../../backend/empleados/listado.php'); ?>
                 </table>                                                                                        
