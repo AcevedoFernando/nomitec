@@ -14,7 +14,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <title>Nomitec | Usuarios</title>
+    <title>Nomitec | Nominas</title>
     
     <style>
         body {
@@ -35,22 +35,24 @@
 
 <div class="jumbotron mx-5">
             <div class="row justify-content-end">
-                <button class="btn btn-success mr-4" onclick="location.href='/nomitec/views/usuarios/alta.php'">Nuevo Usuario</button>
+                <button class="btn btn-success mr-4" onclick="location.href='/nomitec/views/nominas/alta.php'">Nueva Nomina</button>
             </div>
-            <div class="row justify-content-center"><h3 class="font-text-bold">Lista de usuarios</h3></div>      
+            <div class="row justify-content-center"><h3 class="font-text-bold">Lista de Nominas</h3></div>      
             <hr>
-            <div class="row justify-content-center">   
-                <div class="col-8">
+            <div class="row justify-content-center">  
+                <div class="col-12">
                     <table class="table table-responsive-md">
                         <tr>
-                            <th>ID</th>
-                            <th>Usuario</th>
-                            <th>Rol</th>                        
+                            <th>No. Nomina</th>
+                            <th>No. Empleado</th>                             
+                            <th>Empleado</th>                             
+                            <th>Total</th>     
+                            <th>Fecha</th>                         
                             <th>Acciones</th>
                         </tr>
-                        <?php include ('../../backend/usuarios/listado.php'); ?>
-                    </table>       
-                </div>                                                                                                               
+                        <?php include ('../../backend/nominas/listado.php'); ?>
+                    </table>           
+                </div>                                                                                      
             </div>             
     </div>
 

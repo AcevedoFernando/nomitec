@@ -42,12 +42,12 @@
             <div class="row justify-content-center">                                                
                 <table class="table table-responsive-md">
                     <tr>
-                        <td>No. Prestamo</td>
-                        <td>Empleado</td>
-                        <td>Monto</td>
-                        <td>Descuento por nomina</td>
-                        <td>Status</td>
-                        <td>Acciones</td>
+                        <th>No. Prestamo</th>
+                        <th>Empleado</th>
+                        <th>Monto</th>
+                        <th>Descuento por nomina</th>
+                        <th>Status</th>
+                        <th>Acciones</th>
                     </tr>
                     <?php include ('../../../backend/empleados/prestamos/listado.php'); ?>
                 </table>                                                   

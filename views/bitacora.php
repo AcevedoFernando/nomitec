@@ -37,53 +37,43 @@ include '../layouts/menu.php';
      style="background-color:#bcdee2"><h3>Historial</h3></div>  
 
 <div class="jumbotron mx-5">       
-    <div class="row justify-content-start">
-        <form action="empleados.php">
-            <button class="ml-5 btn btn-info" type="submit">Regresar</button>                
-        </form>
-    </div><br>
-    <table class="table table-responsive-md">
-        <tr>
-            <td>id</td>
-            <td>usuario</td>
-            <td>accion</td>
-            <td>fecha</td>
-        </tr>
-    <?php
-    include ('conexionmysql.php');
-    $query = "SELECT * FROM log ORDER BY id";
-    $result = mysqli_query($connection,$query);
-    $obj=mysqli_fetch_array($result);
-    $id=$obj['id'];
-    $id_usuario=$obj['id_usuario'];
-    $accion=$obj['accion'];
-    $fecha=$obj['fecha'];
-    if (mysqli_num_rows($result) > 0) {
-    // output data of each row
-        while($row = mysqli_fetch_assoc($result)) {
+    <div class="row justify-content-center">
+        <div class="col-8">
+                <table class="table table-responsive-md">
+                    <tr>
+                        <th>Registro</th>
+                        <th>Usuario</th>
+                        <th>Acción</th>
+                        <th>Fecha</th>
+                    </tr>
+                    <?php
+                    include ('conexionmysql.php');
+                    $query = "SELECT * FROM log ORDER BY id";
+                    $result = mysqli_query($connection,$query);
+                        
+                    if (mysqli_num_rows($result) > 0) {
+                        while($row = mysqli_fetch_assoc($result)) {
 
-            $idus=$row["id_usuario"];
-            $query2 = "SELECT user FROM users WHERE id='$idus'";
-            $result2 = mysqli_query($connection,$query2);
-            $obj=mysqli_fetch_array($result2);
-            $nombreusu=$obj["user"];   
-            ?>
-                <tr>
-                    <td><?php echo $row["id"]?></td>
-                    <td><?php echo $nombreusu ?></td>
-                    <td><?php echo $row["accion"] ?></td>
-                    <td><?php echo $row["fecha"] ?></td>
-                </tr>
-           
-<?php   } 
-    } 
-    mysqli_close($connection);
-?>
-    <!--<div class="form-group">
-        <label for="nombre">Nombre</label>
-        <input type="text" name="nombre" class="form-control text-center" value="<?php //echo $id.' '.$id_usuario.' '.$accion' '.$fecha; ?>" >
-    </div>   -->
-     </table>
+                            $idus=$row["id_usuario"];
+                            $query2 = "SELECT user FROM users WHERE id='$idus'";
+                            $result2 = mysqli_query($connection,$query2);
+                            $obj=mysqli_fetch_array($result2);
+                            $nombreusu=$obj["user"];   
+                            ?>
+                                <tr>
+                                    <td><?php echo $row["id"]?></td>
+                                    <td><?php echo $nombreusu ?></td>
+                                    <td><?php echo $row["accion"] ?></td>
+                                    <td><?php echo $row["fecha"] ?></td>
+                                </tr>
+                    
+                    <?php   } 
+                        } 
+                        mysqli_close($connection);
+                    ?>        
+                </table>
+            </div>
+     </div>
 </div>
 
 
