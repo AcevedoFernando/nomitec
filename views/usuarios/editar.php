@@ -33,7 +33,8 @@
             $obj=mysqli_fetch_array($result);
             $id=$obj['id'];                                     
             $user=$obj['user'];
-            $pass=$obj['pass'];  
+            $pass=$obj['pass'];
+            $rol = $obj['rol'];  
         mysqli_close($connection);
     ?>
 <div class="jumbotron mx-5">       
@@ -54,7 +55,7 @@
                     </div>                            
                 </div>
             <form action="/nomitec/backend/usuarios/editar.php?id=<?php echo $id ?>" method="post">
-                <div class="row">                    
+                <div class="row justify-content-center">                    
                     <div class="col-6 form-group">                                            
                         <div class="form-group">
                             <label>User</label>
@@ -66,27 +67,33 @@
                         </div>
                         <div class="form-group">
                             <select class="form-control" name="rol" required>
-                                <option value="">Seleccione el nivel del usuario</option>
                                     <?php 
                                         include ('../conexionmysql.php');
-                                        $query="SELECT * FROM rol";
+                                        $query="SELECT * FROM rol WHERE id='$rol'";
+                                        $res=mysqli_query($connection,$query);
+                                        $array=mysqli_fetch_array($res);                              
+                                        $id=$array['id'];
+                                        $nombre=$array['name'];                                    
+                                    ?>                                
+                                <option value="<?php echo $id ?>"><?php echo $nombre; ?></option>
+                                    <?php 
+                                        include ('../conexionmysql.php');
+                                        $query="SELECT * FROM rol WHERE id!='$rol'";
                                         $res=mysqli_query($connection,$query);
                                         while($array=mysqli_fetch_array($res)){                                 
                                         $id=$array['id'];
                                         $nombre=$array['name'];                                    
                                     ?>                                
                                 <option value="<?php echo $id ?>"><?php echo $nombre; ?></option>
-                            <?php } ?>
-                            <?php mysqli_close($connection); ?>
+                                <?php } mysqli_close($connection); ?>
                         </select>
                         </div>
-                    </div>
-                <div class="row justify-content-center">
-                    <div class="col-6">
+                    <div class="form-group">
                         <button class="form-control btn btn-success my-3" type="submit">Guardar</button>                    
                     </div>
-                </div>
-            </form>       
+                </div>               
+            </div>                         
+        </form>       
     </div>               
 </div>
 <?php

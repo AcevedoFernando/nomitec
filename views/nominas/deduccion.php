@@ -32,6 +32,8 @@
 
         $id_nomina = $_GET['id'];
         $id_trabajador = $_GET['id_trabajador'];
+        $dias_lab = $_GET['dias_lab'];
+        $horas_extra = $_GET['horas_extra'];
     ?>
 
 
@@ -40,8 +42,11 @@
             <div class="row justify-content-center"><h3 class="font-text-bold">Registro de deducciones y percepciones</h3></div>      
             <hr>
             <div class="row justify-content-center">                                
-                <form action="/nomitec/backend/nominas/alta.php?id=" method="post">                    
-                    
+                <form action="/nomitec/backend/nominas/altadyp.php?id=<?php echo $id_nomina?>" method="post">                    
+                    <input type="hidden" name="id_nomina" value="<?php echo $id_nomina ?>">
+                    <input type="hidden" name="id_trabajador" value="<?php echo $id_trabajador ?>">
+                    <input type="hidden" name="dias_lab" value="<?php echo $dias_lab ?>">
+                    <input type="hidden" name="horas_extra" value="<?php echo $horas_extra ?>">
                    <div class="row">
                         <div class="col">
                             <div class="form-group">

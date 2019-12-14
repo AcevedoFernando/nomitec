@@ -39,7 +39,7 @@
     ?>
 <div class="jumbotron mx-5">       
     <div class="row justify-content-start">
-        <form action="empleados.php">
+        <form action="usuarios.php">
             <button class="ml-5 btn btn-info" type="submit">Regresar</button>                
         </form>
     </div>

@@ -47,38 +47,54 @@
     <div class="row justify-content-center border border-primary rounded bg-primary">            
                 <h3>Usuario: <?php echo $id; ?> </h3>             
     </div>
-    <div class="container-fluid justify-content-center border border-primary rounded">   
+            <div class="container-fluid justify-content-center border border-primary rounded">   
                 <div class="row justify-content-center">
                     <div class="col justify-content-center">
                         <br>
-                        <h3><span class="oi oi-book"></span>Datos del Usuario</h3>          
+                        <h3><span class="oi oi-book"></span>Datos del Usuario</h3>                        
                     </div>                            
-                </div>     
-                <div class="row">                    
-                    <div class="col-6 form-group">                                            
-                        <div class="form-group">
-                            <label for="user">user</label>
-                            <input type="text" name="user" class="form-control text-center" value="<?php echo $user; ?>" disabled>
-                        </div>
-                        <div class="form-group">
-                            <label for="rol">Nivel del Usuario</label>
-                            <select class="form-control" name="rol" disabled>
-                                    <option><?php 
-                                    include ('../conexionmysql.php');
-                                    $query="SELECT * FROM rol WHERE id='$rol'";
-                                    $res=mysqli_query($connection,$query);
-                                    $array=mysqli_fetch_array($res);
-                                    echo $array['name'];
-                                    ?></option>                           
-                            </select>
-                        </div>
-                        <?php mysqli_close($connection); ?>p
-                        <div class="form-group">
-                            <label for="pass">Contrasena</label>                        
-                            <input type="password" name="pass" class="form-control text-center" value="<?php echo $pass ?>" disabled>
-                        </div>
-                    </div><br>                    
-                </div> 
+                </div>
+                <form action="/nomitec/backend/usuarios/editar.php?id=<?php echo $id ?>" method="post">
+                    <div class="row justify-content-center">                    
+                        <div class="col-6 form-group">                                            
+                            <div class="form-group">
+                                <label>User</label>
+                                <input type="text" name="user" class="form-control text-center" value="<?php echo $obj["user"]; ?>" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label>Contrasena</label>
+                                <input type="password" name="pass" class="form-control text-center" value="<?php echo $obj["pass"]; ?>" disabled>
+                            </div>
+                            <div class="form-group">
+                                <select class="form-control" name="rol" disabled>
+                                    <?php 
+                                        include ('../conexionmysql.php');
+                                        $query="SELECT * FROM rol WHERE id='$rol'";
+                                        $res=mysqli_query($connection,$query);
+                                        $array=mysqli_fetch_array($res);                              
+                                        $id=$array['id'];
+                                        $nombre=$array['name'];                                    
+                                    ?>                                
+                                    <option value="<?php echo $id ?>"><?php echo $nombre; ?></option>
+                                    <?php 
+                                        include ('../conexionmysql.php');
+                                        $query="SELECT * FROM rol WHERE id!='$rol'";
+                                        $res=mysqli_query($connection,$query);
+                                        while($array=mysqli_fetch_array($res)){                                 
+                                        $id=$array['id'];
+                                        $nombre=$array['name'];                                    
+                                    ?>                                
+                                    <option value="<?php echo $id ?>"><?php echo $nombre; ?></option>
+                                    <?php } mysqli_close($connection); ?>
+                                </select>
+                            </div>
+                    <div class="form-group">
+                        <button class="form-control btn btn-success my-3" type="submit">Guardar</button>                    
+                    </div>
+                </div>               
+            </div>                         
+        </form>       
+        </div>    
     </div>               
 </div>
 <?php
